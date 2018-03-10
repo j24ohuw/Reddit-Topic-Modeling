@@ -67,8 +67,8 @@ def preprocess(text):
     #text = [re.sub('[^a-zA-Z0-9]+', ' ', word) for word in text]
     text = text.lower()
     text = text.replace('$', ' ')
-##    text = text.replace('-', ' ')
-##    text = text.replace("/", ' ')
+    text = text.replace('-', ' ')
+    text = text.replace("/", ' ')
     text = word_tokenize(text)
 ##    text = [re.sub('[^a-zA-Z0-9]+', '', word) for word in text]
     text = [word for word in text if word not in stop_words] 
@@ -95,10 +95,10 @@ comments = temp
 # each word and its corresponding frequencies in the post's comment section
 list_of_dict = []
 for index, title in enumerate(titles):
-##    text = ''
+    text = ''
     bag_of_words = set(title)
-##    text = ' '.join(comments_in_thread[index])
-    text = comments[index]
+    text = ' '.join(comments_in_thread[index])
+##    text = comments[index]
     dictionary = {word:text.count(word) for word in bag_of_words if text.count(word) > 0}
     list_of_dict.append(dictionary)
 
@@ -131,8 +131,3 @@ variables = [data['title'], titles, posts, comments, comments_in_thread,
 
 with open('variables.txt', 'wb') as fp:
     pickle.dump(variables, fp)
-
-
-
-
-
