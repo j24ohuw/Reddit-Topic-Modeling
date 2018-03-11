@@ -69,6 +69,7 @@ def preprocess(text):
     text = text.replace('$', ' ')
     text = text.replace('-', ' ')
     text = text.replace("/", ' ')
+    text = text.replace(".", ' ')
     text = word_tokenize(text)
 ##    text = [re.sub('[^a-zA-Z0-9]+', '', word) for word in text]
     text = [word for word in text if word not in stop_words] 
@@ -131,3 +132,8 @@ variables = [data['title'], titles, posts, comments, comments_in_thread,
 
 with open('variables.txt', 'wb') as fp:
     pickle.dump(variables, fp)
+
+
+
+
+
